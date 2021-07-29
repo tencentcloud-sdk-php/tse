@@ -24,6 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setIntranetAddress(string $IntranetAddress) 设置内网访问地址
  * @method string getInternetAddress() 获取公网访问地址
  * @method void setInternetAddress(string $InternetAddress) 设置公网访问地址
+ * @method array getEnvAddressInfos() 获取apollo多环境公网ip
+ * @method void setEnvAddressInfos(array $EnvAddressInfos) 设置apollo多环境公网ip
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
@@ -40,6 +42,11 @@ class DescribeSREInstanceAccessAddressResponse extends AbstractModel
     public $InternetAddress;
 
     /**
+     * @var array apollo多环境公网ip
+     */
+    public $EnvAddressInfos;
+
+    /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
@@ -47,6 +54,7 @@ class DescribeSREInstanceAccessAddressResponse extends AbstractModel
     /**
      * @param string $IntranetAddress 内网访问地址
      * @param string $InternetAddress 公网访问地址
+     * @param array $EnvAddressInfos apollo多环境公网ip
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -68,6 +76,15 @@ class DescribeSREInstanceAccessAddressResponse extends AbstractModel
 
         if (array_key_exists("InternetAddress",$param) and $param["InternetAddress"] !== null) {
             $this->InternetAddress = $param["InternetAddress"];
+        }
+
+        if (array_key_exists("EnvAddressInfos",$param) and $param["EnvAddressInfos"] !== null) {
+            $this->EnvAddressInfos = [];
+            foreach ($param["EnvAddressInfos"] as $key => $value){
+                $obj = new EnvAddressInfo();
+                $obj->deserialize($value);
+                array_push($this->EnvAddressInfos, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
