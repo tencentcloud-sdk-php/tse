@@ -18,39 +18,31 @@ namespace TencentCloud\Tse\V20201207\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 私有网络信息
+ * 服务治理引擎绑定的kubernetes信息
  *
- * @method string getVpcId() 获取Vpc Id
- * @method void setVpcId(string $VpcId) 设置Vpc Id
- * @method string getSubnetId() 获取子网ID
- * @method void setSubnetId(string $SubnetId) 设置子网ID
- * @method string getIntranetAddress() 获取内网访问地址
+ * @method string getBoundClusterId() 获取绑定的kubernetes集群ID
+ * @method void setBoundClusterId(string $BoundClusterId) 设置绑定的kubernetes集群ID
+ * @method string getBoundClusterType() 获取绑定的kubernetes的集群类型，分tke和eks两种
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setIntranetAddress(string $IntranetAddress) 设置内网访问地址
+ * @method void setBoundClusterType(string $BoundClusterType) 设置绑定的kubernetes的集群类型，分tke和eks两种
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class VpcInfo extends AbstractModel
+class BoundK8SInfo extends AbstractModel
 {
     /**
-     * @var string Vpc Id
+     * @var string 绑定的kubernetes集群ID
      */
-    public $VpcId;
+    public $BoundClusterId;
 
     /**
-     * @var string 子网ID
-     */
-    public $SubnetId;
-
-    /**
-     * @var string 内网访问地址
+     * @var string 绑定的kubernetes的集群类型，分tke和eks两种
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $IntranetAddress;
+    public $BoundClusterType;
 
     /**
-     * @param string $VpcId Vpc Id
-     * @param string $SubnetId 子网ID
-     * @param string $IntranetAddress 内网访问地址
+     * @param string $BoundClusterId 绑定的kubernetes集群ID
+     * @param string $BoundClusterType 绑定的kubernetes的集群类型，分tke和eks两种
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -66,16 +58,12 @@ class VpcInfo extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
-            $this->VpcId = $param["VpcId"];
+        if (array_key_exists("BoundClusterId",$param) and $param["BoundClusterId"] !== null) {
+            $this->BoundClusterId = $param["BoundClusterId"];
         }
 
-        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
-            $this->SubnetId = $param["SubnetId"];
-        }
-
-        if (array_key_exists("IntranetAddress",$param) and $param["IntranetAddress"] !== null) {
-            $this->IntranetAddress = $param["IntranetAddress"];
+        if (array_key_exists("BoundClusterType",$param) and $param["BoundClusterType"] !== null) {
+            $this->BoundClusterType = $param["BoundClusterType"];
         }
     }
 }
