@@ -18,19 +18,19 @@ namespace TencentCloud\Tse\V20201207\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateCloudNativeAPIGatewayService返回参数结构体
+ * UpdateUpstreamTargets返回参数结构体
  *
- * @method CreateGatewayServiceResult getResult() 获取网关服务创建结果
+ * @method boolean getResult() 获取是否更新成功
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setResult(CreateGatewayServiceResult $Result) 设置网关服务创建结果
+ * @method void setResult(boolean $Result) 设置是否更新成功
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateCloudNativeAPIGatewayServiceResponse extends AbstractModel
+class UpdateUpstreamTargetsResponse extends AbstractModel
 {
     /**
-     * @var CreateGatewayServiceResult 网关服务创建结果
+     * @var boolean 是否更新成功
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Result;
@@ -41,7 +41,7 @@ class CreateCloudNativeAPIGatewayServiceResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param CreateGatewayServiceResult $Result 网关服务创建结果
+     * @param boolean $Result 是否更新成功
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -59,8 +59,7 @@ class CreateCloudNativeAPIGatewayServiceResponse extends AbstractModel
             return;
         }
         if (array_key_exists("Result",$param) and $param["Result"] !== null) {
-            $this->Result = new CreateGatewayServiceResult();
-            $this->Result->deserialize($param["Result"]);
+            $this->Result = $param["Result"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
