@@ -18,47 +18,47 @@ namespace TencentCloud\Tse\V20201207\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 扩容策略
+ * 创建kong客户端公网结果
  *
- * @method string getType() 获取类型，Pods
+ * @method string getGatewayId() 获取网关实例ID
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setType(string $Type) 设置类型，Pods
+ * @method void setGatewayId(string $GatewayId) 设置网关实例ID
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getValue() 获取数量
+ * @method string getGroupId() 获取分组ID
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setValue(integer $Value) 设置数量
+ * @method void setGroupId(string $GroupId) 设置分组ID
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getPeriodSeconds() 获取扩容周期
+ * @method string getNetworkId() 获取客户端公网网络ID
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPeriodSeconds(integer $PeriodSeconds) 设置扩容周期
+ * @method void setNetworkId(string $NetworkId) 设置客户端公网网络ID
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class AutoScalerPolicy extends AbstractModel
+class CreatePublicNetworkResult extends AbstractModel
 {
     /**
-     * @var string 类型，Pods
+     * @var string 网关实例ID
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Type;
+    public $GatewayId;
 
     /**
-     * @var integer 数量
+     * @var string 分组ID
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Value;
+    public $GroupId;
 
     /**
-     * @var integer 扩容周期
+     * @var string 客户端公网网络ID
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $PeriodSeconds;
+    public $NetworkId;
 
     /**
-     * @param string $Type 类型，Pods
+     * @param string $GatewayId 网关实例ID
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $Value 数量
+     * @param string $GroupId 分组ID
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $PeriodSeconds 扩容周期
+     * @param string $NetworkId 客户端公网网络ID
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -74,16 +74,16 @@ class AutoScalerPolicy extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
-            $this->Type = $param["Type"];
+        if (array_key_exists("GatewayId",$param) and $param["GatewayId"] !== null) {
+            $this->GatewayId = $param["GatewayId"];
         }
 
-        if (array_key_exists("Value",$param) and $param["Value"] !== null) {
-            $this->Value = $param["Value"];
+        if (array_key_exists("GroupId",$param) and $param["GroupId"] !== null) {
+            $this->GroupId = $param["GroupId"];
         }
 
-        if (array_key_exists("PeriodSeconds",$param) and $param["PeriodSeconds"] !== null) {
-            $this->PeriodSeconds = $param["PeriodSeconds"];
+        if (array_key_exists("NetworkId",$param) and $param["NetworkId"] !== null) {
+            $this->NetworkId = $param["NetworkId"];
         }
     }
 }
