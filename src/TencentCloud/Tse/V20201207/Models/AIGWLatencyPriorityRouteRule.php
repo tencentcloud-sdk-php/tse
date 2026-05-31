@@ -18,28 +18,20 @@ namespace TencentCloud\Tse\V20201207\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeCloudNativeAPIGatewaySecretKey请求参数结构体
+ * AI 网关延迟优先路由模型服务
  *
- * @method string getGatewayId() 获取<p>实例 ID</p>
- * @method void setGatewayId(string $GatewayId) 设置<p>实例 ID</p>
- * @method string getSecretKeyId() 获取<p>密钥id</p>
- * @method void setSecretKeyId(string $SecretKeyId) 设置<p>密钥id</p>
+ * @method string getModelServiceId() 获取<p>模型服务id</p>
+ * @method void setModelServiceId(string $ModelServiceId) 设置<p>模型服务id</p>
  */
-class DescribeCloudNativeAPIGatewaySecretKeyRequest extends AbstractModel
+class AIGWLatencyPriorityRouteRule extends AbstractModel
 {
     /**
-     * @var string <p>实例 ID</p>
+     * @var string <p>模型服务id</p>
      */
-    public $GatewayId;
+    public $ModelServiceId;
 
     /**
-     * @var string <p>密钥id</p>
-     */
-    public $SecretKeyId;
-
-    /**
-     * @param string $GatewayId <p>实例 ID</p>
-     * @param string $SecretKeyId <p>密钥id</p>
+     * @param string $ModelServiceId <p>模型服务id</p>
      */
     function __construct()
     {
@@ -54,12 +46,8 @@ class DescribeCloudNativeAPIGatewaySecretKeyRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("GatewayId",$param) and $param["GatewayId"] !== null) {
-            $this->GatewayId = $param["GatewayId"];
-        }
-
-        if (array_key_exists("SecretKeyId",$param) and $param["SecretKeyId"] !== null) {
-            $this->SecretKeyId = $param["SecretKeyId"];
+        if (array_key_exists("ModelServiceId",$param) and $param["ModelServiceId"] !== null) {
+            $this->ModelServiceId = $param["ModelServiceId"];
         }
     }
 }
