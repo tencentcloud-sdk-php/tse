@@ -18,24 +18,18 @@ namespace TencentCloud\Tse\V20201207\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 模型服务路由配置
+ * 模型服务二级路由配置
  *
  * @method array getSelectedTypes() 获取<p>生效的路由算法类型：权重路由，模型名称路由、参数路由等Weighted/ModelName/Query (预留多个，暂时只能填写一个)</p>
  * @method void setSelectedTypes(array $SelectedTypes) 设置<p>生效的路由算法类型：权重路由，模型名称路由、参数路由等Weighted/ModelName/Query (预留多个，暂时只能填写一个)</p>
  * @method array getWeightedConfig() 获取<p>权重路由配置，最多10个</p>
  * @method void setWeightedConfig(array $WeightedConfig) 设置<p>权重路由配置，最多10个</p>
- * @method array getModelNameConfig() 获取<p>模型名称路由配置，最多10个</p>
- * @method void setModelNameConfig(array $ModelNameConfig) 设置<p>模型名称路由配置，最多10个</p>
- * @method AIGWIntentRoute getIntentRouteConfig() 获取<p>意图识别</p>
- * @method void setIntentRouteConfig(AIGWIntentRoute $IntentRouteConfig) 设置<p>意图识别</p>
  * @method AIGWLatencyPriorityConfig getLatencyPriorityConfig() 获取<p>延迟路由</p>
  * @method void setLatencyPriorityConfig(AIGWLatencyPriorityConfig $LatencyPriorityConfig) 设置<p>延迟路由</p>
- * @method AIGWCacheAwareRouteConfig getCacheAwareRouteConfig() 获取<p>缓存感知路由配置（前缀缓存）</p>
- * @method void setCacheAwareRouteConfig(AIGWCacheAwareRouteConfig $CacheAwareRouteConfig) 设置<p>缓存感知路由配置（前缀缓存）</p>
- * @method AIGWTokenLengthRoute getTokenLengthRouteConfig() 获取<p>token 长度路由</p>
- * @method void setTokenLengthRouteConfig(AIGWTokenLengthRoute $TokenLengthRouteConfig) 设置<p>token 长度路由</p>
+ * @method AIGWRouteModelServiceConfig getModelServiceConfig() 获取<p>指定模型路由（暂时只用在Token长度路由时的子路由选择）</p>
+ * @method void setModelServiceConfig(AIGWRouteModelServiceConfig $ModelServiceConfig) 设置<p>指定模型路由（暂时只用在Token长度路由时的子路由选择）</p>
  */
-class CloudNativeAPIGatewayLLMModelServiceRoute extends AbstractModel
+class AIGWLLMModelServiceSubRoute extends AbstractModel
 {
     /**
      * @var array <p>生效的路由算法类型：权重路由，模型名称路由、参数路由等Weighted/ModelName/Query (预留多个，暂时只能填写一个)</p>
@@ -48,38 +42,20 @@ class CloudNativeAPIGatewayLLMModelServiceRoute extends AbstractModel
     public $WeightedConfig;
 
     /**
-     * @var array <p>模型名称路由配置，最多10个</p>
-     */
-    public $ModelNameConfig;
-
-    /**
-     * @var AIGWIntentRoute <p>意图识别</p>
-     */
-    public $IntentRouteConfig;
-
-    /**
      * @var AIGWLatencyPriorityConfig <p>延迟路由</p>
      */
     public $LatencyPriorityConfig;
 
     /**
-     * @var AIGWCacheAwareRouteConfig <p>缓存感知路由配置（前缀缓存）</p>
+     * @var AIGWRouteModelServiceConfig <p>指定模型路由（暂时只用在Token长度路由时的子路由选择）</p>
      */
-    public $CacheAwareRouteConfig;
-
-    /**
-     * @var AIGWTokenLengthRoute <p>token 长度路由</p>
-     */
-    public $TokenLengthRouteConfig;
+    public $ModelServiceConfig;
 
     /**
      * @param array $SelectedTypes <p>生效的路由算法类型：权重路由，模型名称路由、参数路由等Weighted/ModelName/Query (预留多个，暂时只能填写一个)</p>
      * @param array $WeightedConfig <p>权重路由配置，最多10个</p>
-     * @param array $ModelNameConfig <p>模型名称路由配置，最多10个</p>
-     * @param AIGWIntentRoute $IntentRouteConfig <p>意图识别</p>
      * @param AIGWLatencyPriorityConfig $LatencyPriorityConfig <p>延迟路由</p>
-     * @param AIGWCacheAwareRouteConfig $CacheAwareRouteConfig <p>缓存感知路由配置（前缀缓存）</p>
-     * @param AIGWTokenLengthRoute $TokenLengthRouteConfig <p>token 长度路由</p>
+     * @param AIGWRouteModelServiceConfig $ModelServiceConfig <p>指定模型路由（暂时只用在Token长度路由时的子路由选择）</p>
      */
     function __construct()
     {
@@ -107,33 +83,14 @@ class CloudNativeAPIGatewayLLMModelServiceRoute extends AbstractModel
             }
         }
 
-        if (array_key_exists("ModelNameConfig",$param) and $param["ModelNameConfig"] !== null) {
-            $this->ModelNameConfig = [];
-            foreach ($param["ModelNameConfig"] as $key => $value){
-                $obj = new CloudNativeAPIGatewayLLMModelServiceRouteModelNameStrategy();
-                $obj->deserialize($value);
-                array_push($this->ModelNameConfig, $obj);
-            }
-        }
-
-        if (array_key_exists("IntentRouteConfig",$param) and $param["IntentRouteConfig"] !== null) {
-            $this->IntentRouteConfig = new AIGWIntentRoute();
-            $this->IntentRouteConfig->deserialize($param["IntentRouteConfig"]);
-        }
-
         if (array_key_exists("LatencyPriorityConfig",$param) and $param["LatencyPriorityConfig"] !== null) {
             $this->LatencyPriorityConfig = new AIGWLatencyPriorityConfig();
             $this->LatencyPriorityConfig->deserialize($param["LatencyPriorityConfig"]);
         }
 
-        if (array_key_exists("CacheAwareRouteConfig",$param) and $param["CacheAwareRouteConfig"] !== null) {
-            $this->CacheAwareRouteConfig = new AIGWCacheAwareRouteConfig();
-            $this->CacheAwareRouteConfig->deserialize($param["CacheAwareRouteConfig"]);
-        }
-
-        if (array_key_exists("TokenLengthRouteConfig",$param) and $param["TokenLengthRouteConfig"] !== null) {
-            $this->TokenLengthRouteConfig = new AIGWTokenLengthRoute();
-            $this->TokenLengthRouteConfig->deserialize($param["TokenLengthRouteConfig"]);
+        if (array_key_exists("ModelServiceConfig",$param) and $param["ModelServiceConfig"] !== null) {
+            $this->ModelServiceConfig = new AIGWRouteModelServiceConfig();
+            $this->ModelServiceConfig->deserialize($param["ModelServiceConfig"]);
         }
     }
 }
