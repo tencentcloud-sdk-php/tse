@@ -18,7 +18,7 @@ namespace TencentCloud\Tse\V20201207\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeCloudNativeAPIGatewayServices请求参数结构体
+ * DescribeCNGWServicesWithRoutes请求参数结构体
  *
  * @method string getGatewayId() 获取<p>网关ID</p>
  * @method void setGatewayId(string $GatewayId) 设置<p>网关ID</p>
@@ -28,12 +28,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setOffset(integer $Offset) 设置<p>列表 offset</p>
  * @method array getFilters() 获取<p>过滤条件，多个过滤条件之间是与的关系，支持 name,upstreamType</p>
  * @method void setFilters(array $Filters) 设置<p>过滤条件，多个过滤条件之间是与的关系，支持 name,upstreamType</p>
- * @method string getOrderField() 获取<p>排序字段</p>
- * @method void setOrderField(string $OrderField) 设置<p>排序字段</p>
- * @method string getOrderType() 获取<p>排序方式</p><p>枚举值：</p><ul><li>DESC： 降序</li><li>ASC： 升序</li></ul>
- * @method void setOrderType(string $OrderType) 设置<p>排序方式</p><p>枚举值：</p><ul><li>DESC： 降序</li><li>ASC： 升序</li></ul>
  */
-class DescribeCloudNativeAPIGatewayServicesRequest extends AbstractModel
+class DescribeCNGWServicesWithRoutesRequest extends AbstractModel
 {
     /**
      * @var string <p>网关ID</p>
@@ -56,22 +52,10 @@ class DescribeCloudNativeAPIGatewayServicesRequest extends AbstractModel
     public $Filters;
 
     /**
-     * @var string <p>排序字段</p>
-     */
-    public $OrderField;
-
-    /**
-     * @var string <p>排序方式</p><p>枚举值：</p><ul><li>DESC： 降序</li><li>ASC： 升序</li></ul>
-     */
-    public $OrderType;
-
-    /**
      * @param string $GatewayId <p>网关ID</p>
      * @param integer $Limit <p>列表数量</p>
      * @param integer $Offset <p>列表 offset</p>
      * @param array $Filters <p>过滤条件，多个过滤条件之间是与的关系，支持 name,upstreamType</p>
-     * @param string $OrderField <p>排序字段</p>
-     * @param string $OrderType <p>排序方式</p><p>枚举值：</p><ul><li>DESC： 降序</li><li>ASC： 升序</li></ul>
      */
     function __construct()
     {
@@ -105,14 +89,6 @@ class DescribeCloudNativeAPIGatewayServicesRequest extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Filters, $obj);
             }
-        }
-
-        if (array_key_exists("OrderField",$param) and $param["OrderField"] !== null) {
-            $this->OrderField = $param["OrderField"];
-        }
-
-        if (array_key_exists("OrderType",$param) and $param["OrderType"] !== null) {
-            $this->OrderType = $param["OrderType"];
         }
     }
 }

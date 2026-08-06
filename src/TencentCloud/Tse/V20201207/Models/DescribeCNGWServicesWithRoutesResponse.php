@@ -18,17 +18,17 @@ namespace TencentCloud\Tse\V20201207\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeCloudNativeAPIGatewayServices返回参数结构体
+ * DescribeCNGWServicesWithRoutes返回参数结构体
  *
- * @method KongServices getResult() 获取<p>无</p>
- * @method void setResult(KongServices $Result) 设置<p>无</p>
+ * @method KongServiceWithRoutes getResult() 获取<p>无</p>
+ * @method void setResult(KongServiceWithRoutes $Result) 设置<p>无</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeCloudNativeAPIGatewayServicesResponse extends AbstractModel
+class DescribeCNGWServicesWithRoutesResponse extends AbstractModel
 {
     /**
-     * @var KongServices <p>无</p>
+     * @var KongServiceWithRoutes <p>无</p>
      */
     public $Result;
 
@@ -38,7 +38,7 @@ class DescribeCloudNativeAPIGatewayServicesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param KongServices $Result <p>无</p>
+     * @param KongServiceWithRoutes $Result <p>无</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -55,7 +55,7 @@ class DescribeCloudNativeAPIGatewayServicesResponse extends AbstractModel
             return;
         }
         if (array_key_exists("Result",$param) and $param["Result"] !== null) {
-            $this->Result = new KongServices();
+            $this->Result = new KongServiceWithRoutes();
             $this->Result->deserialize($param["Result"]);
         }
 
